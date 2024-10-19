@@ -41,7 +41,7 @@
 			let fetchAboutCounter = 0
 			async function fetchAbout() {
 				fetchAboutCounter++
-				const url = document.getElementById("https://node-dice-roller-inclass-g3b7f5hbf4b4c4hk.centralus-01.azurewebsites.net").value + "/about";
+				const url = document.getElementById("https://node-dice-roller-inclass-g3b7f5hbf4b4c4hk.centralus-01.azurewebsites.net").innerHTML + "/about";
 				const response = await fetch(url)
 				const responseText = await response.text()
 				document.getElementById("fetch-about-result").innerHTML = responseText + " ("+fetchAboutCounter+")"
@@ -50,7 +50,7 @@
 			let rollCounter = 0
 			async function fetchRollD6() {
 				rollCounter++
-				const response = await fetch("https://node-dice-roller-inclass-g3b7f5hbf4b4c4hk.centralus-01.azurewebsites.net").value + "/rollD6";
+				const response = await fetch("https://node-dice-roller-inclass-g3b7f5hbf4b4c4hk.centralus-01.azurewebsites.net").innerHTML + "/rollD6";
 				const responseText = await response.text()
 				document.getElementById("fetch-rollD6-result").innerHTML = responseText
 			}
