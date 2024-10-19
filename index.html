@@ -55,7 +55,7 @@
 		<br><br>
 
 		<button type="button" onclick="fetchRollD6()">Roll D6</button>
-		<img id="fetch-rollD6-result" alt="Roll D6 Result" style="max-width: 500px; margin-top: 20px;">
+		<div id="fetch-rollD6-result"></div>
 		<br><br>
 
 		<script>
@@ -70,12 +70,11 @@
 
 			let rollCounter = 0
 			async function fetchRollD6() {
+				rollCounter++
 				const url = document.getElementById("urlInput").value + "/rollD6";
 				const response = await fetch(url)
-				const responseBlob = await response.blob()
-				const imageUrl = URL.createObjectURL(responseBlob)
-				const imgElement = document.getElementById("fetch-rollD6-result");
-				imgElement.src = imageUrl
+				const responseText = await response.text()
+				document.getElementById("fetch-rollD6-result").innerHTML = responseText + "("+rollCounter+")"
 			}
 		</script>
 	</div>
