@@ -13,7 +13,7 @@
 	<button class="button" onclick="testMERNaServerConnection(url)">Ping Server</button>
 	<div id="ping"></div>
 
-	<button class="button" onclick="fetchRollD6()">Roll D6</button>
+	<button class="button" onclick="fetchRollD6(url)">Roll D6</button>
 	<div id="fetch-rollD6-result"></div>
 	<br><br>
 
@@ -39,18 +39,18 @@
 			testMERNaServerConnection(url)
 	
 			let fetchAboutCounter = 0
-			async function fetchAbout() {
+			async function fetchAbout(url) {
 				fetchAboutCounter++
-				const url = document.getElementById("urlInput").value + "/about";
+				const url = document.getElementById(url).value + "/about";
 				const response = await fetch(url)
 				const responseText = await response.text()
 				document.getElementById("fetch-about-result").innerHTML = responseText + " ("+fetchAboutCounter+")"
 			}
 
 			let rollCounter = 0
-			async function fetchRollD6() {
+			async function fetchRollD6(url) {
 				rollCounter++
-				const response = await fetch("/rollD6")
+				const response = await fetch(url).value + "/rollD6";
 				const responseText = await response.text()
 				document.getElementById("fetch-rollD6-result").innerHTML = responseText
 			}
