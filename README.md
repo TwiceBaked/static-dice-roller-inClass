@@ -1,1 +1,1 @@
-# merna-static-website-on-azure-template
+# Client side of the Dice Roller made by Gabe Carlson using Pogue's template
